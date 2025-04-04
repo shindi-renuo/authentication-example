@@ -72,3 +72,6 @@ This generates the following output:
       create    test/fixtures/users.yml
       create    test/models/user_test.rb
 ```
+
+Then, I ran `bin/rails generate scaffold Post title:string body:text`.
+This creates a new scaffold for our blogging app.
