@@ -6,7 +6,7 @@ module Authentication
     helper_method :authenticated?
   end
 
-  module ClassMethods
+  class_methods do
     def allow_unauthenticated_access(**options)
       skip_before_action :require_authentication, **options
     end
