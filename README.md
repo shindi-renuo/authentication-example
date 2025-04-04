@@ -1,24 +1,29 @@
-# README
+# Rails Auth Example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ever since the introduction of Rails 8, there is a much smaller need for separate authentication gems,
+like `Devise` for example.
 
-Things you may want to cover:
+## About
 
-* Ruby version
+This is a simple blog app written in RoR 8 and includes the Rails Authentication mentioned earlier.
 
-* System dependencies
+## Get Started
 
-* Configuration
+1. First, clone the repository:
 
-* Database creation
+```bash
+git clone git@github.com:shindi-renuo/authentication-example.git 
+cd authentication-example
+```
 
-* Database initialization
+2. Install dependencies
 
-* How to run the test suite
+```bash
+bin/setup
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Run the app
 
-* Deployment instructions
-
-* ...
+```bash
+bin/dev
+```
