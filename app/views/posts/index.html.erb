@@ -1,16 +1,25 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Posts" %>
 
 <h1>Posts</h1>
 
 <div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+  <% if @posts.empty? %>
+    <div class="post">
+      <p>No posts yet. Create your first post!</p>
+    </div>
+  <% else %>
+    <% @posts.each do |post| %>
+      <div class="post">
+        <%= render post %>
+        <div class="post-actions">
+          <%= link_to "Show", post, class: "button button-primary" %>
+          <% if Current.user && post.user_id == Current.user.id %>
+            <%= link_to "Edit", edit_post_path(post), class: "button button-secondary" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path %>
+<%= link_to "New post", new_post_path, class: "button button-primary" %>

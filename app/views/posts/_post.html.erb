@@ -1,12 +1,17 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
+<div id="<%= dom_id post %>" class="post-content">
+  <div class="post-header">
+    <h3><%= post.title %></h3>
+    <%# Conditionally render delete button passed from show view %>
+    <% if local_assigns.fetch(:show_delete_button, false) %>
+      <%= button_to "Delete", post, method: :delete, class: "button button-destructive button-sm", data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
 
-  <p>
-    <strong>Body:</strong>
+  <div class="post-body">
     <%= post.body %>
-  </p>
+  </div>
 
+  <div class="post-meta">
+    <small>Posted <%= time_ago_in_words(post.created_at) %> ago</small>
+  </div>
 </div>

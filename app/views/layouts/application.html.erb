@@ -23,6 +23,41 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <h2><%= link_to "Rails Auth", "/" %></h2>
+        </div>
+        <div class="nav-links">
+          <%= link_to "Posts", posts_path, class: "button button-ghost" %>
+          <% if Current.user %>
+            <span><%= Current.user.email_address %></span>
+            <%= button_to "Sign out", session_path, method: :delete, class: "button button-secondary" %>
+          <% else %>
+            <%= link_to "Sign in", new_session_path, class: "button button-primary" %>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+
+    <footer>
+      <p>&copy; <%= Date.today.year %> Rails Auth Example</p>
+    </footer>
   </body>
 </html>
