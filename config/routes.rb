@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
   resource :session
-  resource :registration, only: [ :new, :create ], path_names: { new: "sign_up" }
   resources :passwords, param: :token
 
   # Logout route
