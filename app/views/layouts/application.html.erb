@@ -34,6 +34,7 @@
             <span><%= Current.user.email_address %></span>
             <%= button_to "Sign out", session_path, method: :delete, class: "button button-secondary" %>
           <% else %>
+            <%= link_to "Sign up", new_registration_path, class: "button button-secondary" %>
             <%= link_to "Sign in", new_session_path, class: "button button-primary" %>
           <% end %>
         </div>
